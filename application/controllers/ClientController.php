@@ -41,8 +41,7 @@ class ClientController extends MyRest_Controller
                 CURLOPT_USERPWD => "jyvimas@gmail.com:42efdcbda08c35b84384",
                 CURLOPT_URL => $url,
                 CURLOPT_RETURNTRANSFER => true,     
-                CURLOPT_HTTPHEADER => array('Content-type: application/json', 'Accept: application/json')//, 
-                //CURLOPT_SSL_VERIFYPEER => false      
+                CURLOPT_HTTPHEADER => array('Content-type: application/json', 'Accept: application/json')    
             ); 
 
             //Aplicando configuraciones 
