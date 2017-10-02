@@ -13,10 +13,10 @@ Obtener un contacto en específico:
 GET  /client/:id
 
 Editar un contacto:
-PUT  /cliente/:id
+PUT  /client/:id
 
 Eliminar un contacto:
-DELETE  /cliente/:id
+DELETE  /client/:id
 
 
 
