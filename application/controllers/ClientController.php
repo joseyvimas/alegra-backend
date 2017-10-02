@@ -77,6 +77,31 @@ class ClientController extends MyRest_Controller
         $this->getResponse()->setHttpResponseCode(200)
                             ->setHeader('Content-Type', 'application/json');
     }
+
+    public function postAction(){
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+            //Se obtiene el json
+            $json = file_get_contents('php://input');
+
+            $url = "https://app.alegra.com/api/v1/contacts/";
+
+            $response = $this->alegrApi("POST", $url, $json);
+
+        }
+        else{
+            $datos = array(
+                'code' => 101,
+                'error' => "Método no permitido"
+            );
+            
+            $response = json_encode($datos, JSON_FORCE_OBJECT);
+        }
+
+        $this->getResponse()->setBody($response);
+        $this->getResponse()->setHttpResponseCode(200)
+                            ->setHeader('Content-Type', 'application/json');
+    }
     
 
     public function getAction(){
@@ -107,32 +132,6 @@ class ClientController extends MyRest_Controller
             );
             
              $response = json_encode($datos, JSON_FORCE_OBJECT);
-        }
-
-        $this->getResponse()->setBody($response);
-        $this->getResponse()->setHttpResponseCode(200)
-                            ->setHeader('Content-Type', 'application/json');
-    }
-    
-
-    public function postAction(){
-        if($_SERVER['REQUEST_METHOD'] == "POST"){
-
-            //Se obtiene el json
-            $json = file_get_contents('php://input');
-
-            $url = "https://app.alegra.com/api/v1/contacts/";
-
-            $response = $this->alegrApi("POST", $url, $json);
-
-        }
-        else{
-            $datos = array(
-                'code' => 101,
-                'error' => "Método no permitido"
-            );
-            
-            $response = json_encode($datos, JSON_FORCE_OBJECT);
         }
 
         $this->getResponse()->setBody($response);
