@@ -35,10 +35,14 @@ class ClientController extends MyRest_Controller
                 break;
         }
 
+        //Obteniendo las credenciales de la API
+        $user_alegrapi = Zend_Registry::get('user_alegrapi');
+        $pwd_alegrapi = Zend_Registry::get('pwd_alegrapi');
+
         // Configurando el resto de las opciones curl 
             $options = array( 
                 CURLOPT_HTTPAUTH => CURLAUTH_BASIC,
-                CURLOPT_USERPWD => "jyvimas@gmail.com:42efdcbda08c35b84384",
+                CURLOPT_USERPWD => "$user_alegrapi:$pwd_alegrapi",
                 CURLOPT_URL => $url,
                 CURLOPT_RETURNTRANSFER => true,     
                 CURLOPT_HTTPHEADER => array('Content-type: application/json', 'Accept: application/json')    
