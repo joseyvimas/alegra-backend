@@ -1,5 +1,7 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+
 class ClientController extends MyRest_Controller
 {
     public function init()
